@@ -1,6 +1,6 @@
 '''
 Tilte: hello_server
-Version: 1.0.0
+Version: 1.0.1
 Owner: Chris Gutekanst
 git: 
 Description: Simple web server that counts the times that it has been request along
@@ -20,6 +20,7 @@ def get_request_data():
     data = 'Headers:{}\nYour IP:{}\n'.format(request.headers, request.remote_addr)
     return data
 
+# Log the request after we have the response payload
 @app.after_request
 def log_the_request(resp):
     msg = '{} {} {} {} {}'.format(
